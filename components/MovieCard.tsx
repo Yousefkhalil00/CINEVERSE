@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { getPoster } from "@/lib/api";
 import Image from "next/image";
+import { Movie } from "@/lib/types";
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie }: { movie: Movie }) {
   const poster = getPoster(movie.poster_path);
   const year = (movie.release_date || "").slice(0, 4);
   const rating = movie.vote_average?.toFixed(1);
