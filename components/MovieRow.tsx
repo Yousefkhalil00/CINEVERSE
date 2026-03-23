@@ -1,6 +1,13 @@
 import MovieCard from "./MovieCard";
+import type { Movie } from "@/lib/types";
 
-export default function MovieRow({ title, movies }) {
+export default function MovieRow({
+  title,
+  movies,
+}: {
+  title: string;
+  movies: Movie[];
+}) {
   return (
     <section className="mx-auto lg:w-[80%] container px-4 sm:px-6 lg:px-0 py-8">
       <div className="flex items-center gap-2.5 mb-5">
