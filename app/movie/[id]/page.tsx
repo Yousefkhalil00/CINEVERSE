@@ -42,8 +42,8 @@ export default async function MoviePage({
               style={{ backgroundImage: `url(${backdrop})` }}
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#080a0e] via-[#080a0e]/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#080a0e]/90 via-[#080a0e]/50 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#080a0e] via-[#080a0e]/60 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#080a0e]/90 via-[#080a0e]/50 to-transparent" />
 
           <div className="absolute inset-0 mx-auto w-full lg:w-[80%] container px-4 sm:px-6 lg:px-0 flex items-end pb-12">
             <div className="flex flex-col md:flex-row gap-8 items-end w-full">
