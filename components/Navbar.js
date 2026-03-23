@@ -225,11 +225,16 @@ function NavLink({ href, active, children }) {
   return (
     <Link
       href={href}
-      className={`text-sm font-semibold tracking-widest uppercase transition-colors ${
+      className={`relative text-sm font-semibold tracking-widest uppercase transition-colors group ${
         active ? "text-[#c9a84c]" : "text-[#8892a4] hover:text-[#e8eaf0]"
       }`}
     >
       {children}
+      <span
+        className={`absolute -bottom-1 left-0 h-[2px] rounded-full bg-[#c9a84c] transition-all duration-300 ${
+          active ? "w-full" : "w-0 group-hover:w-full"
+        }`}
+      />
     </Link>
   );
 }

@@ -1,11 +1,18 @@
 import Link from "next/link";
 
+const NAV_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/movies/popular", label: "Popular" },
+  { href: "/movies/top-rated", label: "Top Rated" },
+  { href: "/movies/now-playing", label: "Now Playing" },
+];
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="w-full bg-[#080a0e] border-t border-white/5 py-10 mt-auto">
-      <div className="mx-auto w-[80%] container px-4 sm:px-6 lg:px-0 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="mx-auto w-[80%] container px-4 sm:px-6 lg:px-0 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex flex-col items-center md:items-start gap-2">
           <Link href="/" className="flex items-center gap-2 group">
             <span className="text-2xl font-bold font-['Bebas_Neue'] tracking-wide text-[#c9a84c] group-hover:text-[#f0c96a] transition-colors">
@@ -17,16 +24,30 @@ export default function Footer() {
           </p>
         </div>
 
+        <nav className="flex items-center gap-6">
+          {NAV_LINKS.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className="relative text-sm font-semibold tracking-widest uppercase text-[#8892a4] hover:text-[#c9a84c] transition-colors duration-200 group"
+            >
+              {label}
+              <span className="absolute -bottom-1 left-0 h-[2px] rounded-full bg-[#c9a84c] w-0 group-hover:w-full transition-all duration-300" />
+            </Link>
+          ))}
+        </nav>
+
         <div className="flex flex-col items-center md:items-end gap-3 text-right">
           <p className="text-[#8892a4] text-xs max-w-xs">
             This product uses the TMDB API but is not endorsed or certified by TMDB.
           </p>
-          <a 
-            href="https://www.themoviedb.org/" 
-            target="_blank" 
+          <a
+            href="https://www.themoviedb.org/"
+            target="_blank"
             rel="noopener noreferrer"
             className="opacity-80 hover:opacity-100 transition-opacity block"
           >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
               alt="Powered by TMDB"
@@ -38,3 +59,4 @@ export default function Footer() {
     </footer>
   );
 }
+
